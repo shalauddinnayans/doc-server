@@ -16,7 +16,7 @@ const AddReview = () => {
       name: "ad",
       ImgUrl: "ad",
     };
-    fetch("http://localhost:5000/reviews", {
+    fetch("http://calm-sands-96963.herokuapp.com/reviews", {
       method: "post",
       headers: {
         "content-type": "application/json",

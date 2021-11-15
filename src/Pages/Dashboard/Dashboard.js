@@ -16,7 +16,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
-import AdminRoute from "../Login/AdminRoute/AdminRoute";
 
 import { Button } from "@mui/material";
 import useAuth from "../../hooks/useAuth";
@@ -35,7 +34,6 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { admin } = useAuth();
-  let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -44,44 +42,38 @@ function Dashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
-      <Divider />
-      <Link to="/appointment">
-        <Button color="inherit">appointment</Button>
-      </Link>
-      <Link to={`${url}/addreview`}>
-        <Button color="inherit">Dashboard</Button>
-      </Link>
-      <Link to={`${url}/addreview`}>
-        <Button color="inherit">Dashboard</Button>
-      </Link>
-      <Link to={`${url}/pay`}>
-        <Button color="inherit">Pay</Button>
-      </Link>
-      {admin && (
-        <Box>
-          <Link to={`${url}/makeAdmin`}>
-            <Button color="inherit">Make Admin</Button>
-          </Link>
-          <Link to={`${url}/addproduct`}>
-            <Button color="inherit">Add Product</Button>
-          </Link>
-        </Box>
-      )}
-      {/* <Link to="/">Add Review</Link>
-
-        <Link to="/">Manage Orders</Link>
-
+      <List>
         <ListItem button>
           <ListItemText>
-            <Link to={`${url}/pay`}>Pay</Link>
+            <Link to="/makeadmin">Make Admin</Link>
           </ListItemText>
         </ListItem>
         <ListItem button>
           <ListItemText>
-            <Link to="/">Make Admin</Link>
+            <Link to="/addproduct">add product</Link>
           </ListItemText>
-        </ListItem> */}
-
+        </ListItem>
+        <ListItem button>
+          <ListItemText>
+            <Link to="/makeadmin">add review</Link>
+          </ListItemText>
+        </ListItem>
+        <ListItem button>
+          <ListItemText>
+            <Link to="/manageorder">Manage order</Link>
+          </ListItemText>
+        </ListItem>
+        <ListItem button>
+          <ListItemText>
+            <Link to="/manageproduct">Manage product</Link>
+          </ListItemText>
+        </ListItem>
+        <ListItem button>
+          <ListItemText>
+            <Link to="/pay">pay</Link>
+          </ListItemText>
+        </ListItem>
+      </List>
       <Divider />
     </div>
   );
@@ -161,32 +153,7 @@ function Dashboard(props) {
         }}
       >
         <Toolbar />
-        <Switch>
-          <Route exact path={path}>
-            <MyOrder />
-          </Route>
-          <PrivateRoute path={`${path}/addreview`}>
-            <AddReview />
-          </PrivateRoute>
-          <PrivateRoute path={`${path}/pay`}>
-            <Pay />
-          </PrivateRoute>
-          <PrivateRoute path={path}>
-            <MyOrder />
-          </PrivateRoute>
-          <AdminRoute path={`${path}/makeAdmin`}>
-            <MakeAdmin></MakeAdmin>
-          </AdminRoute>
-          <AdminRoute path={`${path}/addproduct`}>
-            <AddProduct />
-          </AdminRoute>
-          <AdminRoute path={`${path}/manageproduct`}>
-            <ManageProduct />
-          </AdminRoute>
-          <AdminRoute path={`${path}/manageorder`}>
-            <ManageOrders />
-          </AdminRoute>
-        </Switch>
+        <MyOrder />
       </Box>
     </Box>
   );

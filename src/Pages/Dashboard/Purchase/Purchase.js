@@ -9,7 +9,7 @@ const Purchase = () => {
   const orderProduct = { ...product };
   const { name, price } = orderProduct;
   useEffect(() => {
-    const url = `http://localhost:5000/products/${Id}`;
+    const url = `http://calm-sands-96963.herokuapp.com/products/${Id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
@@ -32,7 +32,7 @@ const Purchase = () => {
       name,
       price,
     };
-    fetch("http://localhost:5000/orders", {
+    fetch("http://calm-sands-96963.herokuapp.com/orders", {
       method: "post",
       headers: {
         "content-type": "application/json",

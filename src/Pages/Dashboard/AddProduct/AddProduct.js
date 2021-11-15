@@ -12,7 +12,7 @@ const AddProduct = () => {
   };
 
   const handleAddProductSubmit = (e) => {
-    fetch("http://localhost:5000/products", {
+    fetch("http://calm-sands-96963.herokuapp.com/products", {
       method: "post",
       headers: {
         "content-type": "application/json",

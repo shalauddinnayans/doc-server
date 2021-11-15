@@ -3,6 +3,8 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { NavLink, useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import Navigation from "../Shared/Navigation/Navigation";
+import Footer from "../Shared/Footer/Footer";
 const Register = () => {
   const history = useHistory();
 
@@ -33,6 +35,7 @@ const Register = () => {
   };
   return (
     <div>
+      <Navigation />
       <form onSubmit={handleRegisterSubmit}>
         <TextField
           required
@@ -78,6 +81,7 @@ const Register = () => {
         </Button>
       </form>
       <NavLink to="/login">Have Accout</NavLink>
+      <Footer />
     </div>
   );
 };

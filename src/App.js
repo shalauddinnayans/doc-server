@@ -15,6 +15,8 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import ManageProduct from "./Pages/Dashboard/ManageProduct/ManageProduct";
 import Purchase from "./Pages/Dashboard/Purchase/Purchase";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
+import Pay from "./Pages/Dashboard/Pay/Pay";
+import ManageOrders from "./Pages/Dashboard/ManageOrders/ManageOrders";
 
 function App() {
   return (
@@ -43,18 +45,22 @@ function App() {
             <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>
-            <PrivateRoute path="/purchase/:Id">
-              <Purchase></Purchase>
+            <PrivateRoute path="/pay">
+              <Pay />
             </PrivateRoute>
-            {/* <Route path="/add">
-              <ManageProduct />
-            </Route>
             <PrivateRoute path="/addreview">
+              <AddReview />
+            </PrivateRoute>
+            <PrivateRoute path="/addproduct">
               <AddProduct />
-            </PrivateRoute> */}
-            {/* <Route path="/addadmin">
-              <MakeAdmin></MakeAdmin>
-            </Route> */}
+            </PrivateRoute>
+            <PrivateRoute path="/manageorder">
+              <ManageOrders />
+            </PrivateRoute>
+            <PrivateRoute path="/manageproduct">
+              <ManageProduct />
+            </PrivateRoute>
+
             <Route path="*">
               <NotFound></NotFound>
             </Route>

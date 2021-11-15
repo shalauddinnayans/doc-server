@@ -5,7 +5,7 @@ import TopProductCard from "./TopProductCard/TopProductCard";
 const TopProduct = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("http://calm-sands-96963.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
