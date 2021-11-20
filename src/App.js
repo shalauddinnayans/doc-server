@@ -20,6 +20,7 @@ import ManageOrders from "./Pages/Dashboard/ManageOrders/ManageOrders";
 
 function App() {
   return (
+    
     <div className="App">
       <AuthProvider>
         <Router>
